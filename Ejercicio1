@@ -1,0 +1,51 @@
+/*
+ * Diseñarr un programa que lea datos del teclado, los almacene en un array y, a continuacion,
+ visualice los elementos que ocupan las posiciones pares.
+ * 	1. Pedir el tamaño del array al usuario (controlar que no sea 0 ni un numero negativo)
+ * 2. Declaro el array de tamaño n
+ * 3. Relleno el array con elementos pedidos por el usuario
+ * 4. Visualizacion del array original y de la de las posiciones pares (a traves de funciones)
+ * */
+
+public class Ejercicio1 {
+
+	public static void main(String[] args) {
+
+		int n, a[], i;
+		// 1. Pedir el tamaÃ±o del array al usuario
+		do{
+			n = Teclado.obtenerInt("Introduce el numero de elementos del array: ");
+		}while(n<=0);
+		
+		// 2. Declaro el array de tamaÃ±o n
+		a = new int[n];
+		// 3. Relleno el array con elementos pedidos por el usuario
+		for (i = 0; i < a.length; i++)
+			a[i] = Teclado.obtenerInt("Introduce un valor para el elemento "
+					+ i);
+
+		// 4. Visualizacion del array original y de la de las posiciones pares
+		// (a traves de funciones)
+
+		System.out.println("Para la array dada:");
+		VisualizarArray(a, n);
+		System.out.println("El array de posiciones pares queda como:");
+		VisualizarArrayPosicionesPares(a, n);
+
+	}
+
+	public static void VisualizarArray(int a[], int n) {
+		int i;
+		for (i = 0; i < a.length; i++)
+			System.out.println(i + "[" + a[i] + "]");
+	}
+
+	public static void VisualizarArrayPosicionesPares(int a[], int n) {
+		int i;
+		for (i = 0; i < a.length; i++) {
+			if (i % 2 == 0)
+				System.out.println(i + "[" + a[i] + "]");
+		}
+	}
+
+}
