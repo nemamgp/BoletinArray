@@ -1,0 +1,40 @@
+/*
+ Crea un array, rellenalo con valores desde el teclado. Muestra sus elementos indicando para
+cada uno si es par o impar.
+ 1. Pedir el tamaño del array al usuario (controlar que no sea 0 ni un numero negativo)
+ * 2. Declaro el array de tamaño n
+ * 3. Relleno el array con elementos pedidos por el usuario
+ * 4. Visualizacion del array 
+ * */
+
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+		int n, a[], i;
+		// 1. Pedir el tamaño del array al usuario
+		do{
+			n = Teclado.obtenerInt("Introduce el numero de elementos del array: ");//Utilizo la clase teclado para controlar que el usuario mete enteros y no otra cosa
+		}while(n<=0);//Controlo que el tamaño del array sea mayor que 0 ni 0 pk no tiene sentido 
+				
+				// 2. Declaro el array de tamaño n
+				a = new int[n];
+				// 3. Relleno el array con elementos pedidos por el usuario
+				for (i = 0; i < a.length; i++)//Recorro el array desde la posicion 0 hasta la longitud del array
+					a[i] = Teclado.obtenerInt("Introduce un valor para el elemento "
+							+ i);//utilizo la funcion de mi clase teclado para controlar que el usuario solo me mete enteros en el array
+				//4. Visualizacion del array 
+				VisualizarArrayPareImpar(a,n);
+
+	}
+	//Funcion que imprime cada valor del array y nos informa si ese elemento del array es par o impar
+	public static void VisualizarArrayPareImpar(int a[],int n){
+		int i;
+		for (i = 0; i < a.length; i++) {//Recorro el array desde la posicion 0 hasta el final 
+			if (a[i] % 2 == 0)//Si el elemento el resto de dividir por 2 es 0 se trata de un elemento par
+				System.out.println(i + "[" + a[i] + "]-->Es par");//imprimo elemento par con informacion
+			else
+				System.out.println(i + "[" + a[i] + "]-->Es impar");//sino lo es imprimo el elemento impar informando de ello.
+		}
+	}
+
+}
