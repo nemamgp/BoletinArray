@@ -1,5 +1,7 @@
+package src;
+
 /*
- * Diseñarr un programa que lea datos del teclado, los almacene en un array y, a continuacion,
+ * Diseñar un programa que lea datos del teclado, los almacene en un array y, a continuacion,
  visualice los elementos que ocupan las posiciones pares.
  * 	1. Pedir el tamaño del array al usuario (controlar que no sea 0 ni un numero negativo)
  * 2. Declaro el array de tamaño n
@@ -10,19 +12,20 @@
 public class Ejercicio1 {
 
 	public static void main(String[] args) {
-
+		//declaracion de las variables
 		int n, a[], i;
-		// 1. Pedir el tamaÃ±o del array al usuario
+		// 1. Pedir el tamaño del array al usuario(se controla que este no sea un numero 0 ni negativo por el tema de errores)
 		do{
-			n = Teclado.obtenerInt("Introduce el numero de elementos del array: ");
+			n = Teclado.obtenerInt("Introduce el numero de elementos del array: ");//utilizo la clase teclado para controlar que el usuario meta enteros y no nada extraño
 		}while(n<=0);
 		
-		// 2. Declaro el array de tamaÃ±o n
+		// 2. Declaro el array de tamaño n
 		a = new int[n];
+		
 		// 3. Relleno el array con elementos pedidos por el usuario
-		for (i = 0; i < a.length; i++)
+		for (i = 0; i < a.length; i++)//bucle que recorre el array desde la posicion 0 hasta length
 			a[i] = Teclado.obtenerInt("Introduce un valor para el elemento "
-					+ i);
+					+ i);//Utilizo la clase teclado para obtener el valor de la celda de mi array asi controlo que esta sea rellenada correctamente y el usuario solo pueda meter numeros enteros
 
 		// 4. Visualizacion del array original y de la de las posiciones pares
 		// (a traves de funciones)
@@ -33,18 +36,18 @@ public class Ejercicio1 {
 		VisualizarArrayPosicionesPares(a, n);
 
 	}
-
+//Funciones usadas en el programa para la visualizacion de los array
 	public static void VisualizarArray(int a[], int n) {
 		int i;
-		for (i = 0; i < a.length; i++)
-			System.out.println(i + "[" + a[i] + "]");
+		for (i = 0; i < a.length; i++)//recorro el array desde la posicion 0 y la imprimo por pantalla de manera vertical
+			System.out.println(i + "[" + a[i] + "]");//imprimir
 	}
 
 	public static void VisualizarArrayPosicionesPares(int a[], int n) {
 		int i;
-		for (i = 0; i < a.length; i++) {
-			if (i % 2 == 0)
-				System.out.println(i + "[" + a[i] + "]");
+		for (i = 0; i < a.length; i++) {//recorro el array desde la posicion 0 hasta la longitud del mismo
+			if (i % 2 == 0)//pregunto si la posicion es par, es decir, dicha posicion al dividirla por 2 su resultado es 0
+				System.out.println(i + "[" + a[i] + "]");//imprimo dicha matriz resultante con la criba por la condicion de arriba
 		}
 	}
 
